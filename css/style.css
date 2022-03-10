@@ -4,18 +4,47 @@ body{
 
 div.my-carousel-container{
     min-height: 700px;
-    min-width:800px ;
-    background-color: aquamarine;
+    min-width:800px;
 }
 
 div.my-carousel-images{
-    background-color: cadetblue;
-    min-height: 540px;
+
+}
+
+div.my-carousel-images .main-img {
+    height: 100%;
+    display: none;
+}
+
+div.main-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.text-box {
+    bottom: 5%;
+    width: 80%;
+    right: 3rem;
+}
+
+div.my-carousel-images .main-img.active{
+    display: block;
 }
 
 div.my-thumbnails{
-    background-color: violet;
+    margin-top: 1.5rem;
+    border-radius: 20px;
     min-height: 160px;
+    overflow: hidden;
+}
+
+div.my-thumbnails .img-wrapper {
+        filter: brightness(50%);
+}
+
+div.my-thumbnails .img-wrapper img {
+    object-fit: cover;
 }
 
 div.my-previous,

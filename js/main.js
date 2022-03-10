@@ -13,6 +13,100 @@ al click di un bottone o già dall'inizio possiamo far partire, ad intervalli di
 
 Bonus 2:
 E se volessi un bottone per invertire la "direzione" del carosello?
-
  *
  */
+
+const images = [
+    {
+        image: 'img/01.jpg',
+        title: 'Sweden',
+        text:  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.'
+    },
+    {
+        image: 'img/02.jpg',
+        title: 'Switzerland',
+        text: 'Lorem ipsum'
+    },
+    {
+        image: 'img/03.jpg',
+        title: 'United Kingdom',
+        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+        image: 'img/04.jpg',
+        title: 'Germany',
+        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
+    },
+    {
+        image: 'img/05.jpg',
+        title: 'Paradise',
+        text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
+    }
+];
+
+document.getElementById('my-before-carousel').innerHTML = `
+<h1 class="text-uppercase fw-bold">
+    Image Carousel
+</h1>`;
+const carouselImg = document.querySelector('.my-carousel-images');
+const thumbnails = document.querySelector('.my-thumbnails');
+thumbnails.classList.add('d-flex');
+
+for (let i = 0 ; i < images.length ; i++){
+    carouselImg.innerHTML += `
+    <div class="main-img position-relative">
+        <img src="${images[i].image}" alt="${images[i].title}">
+        <div class="text-box position-absolute">
+            <h2 class="text-white text-end">${images[i].title}</h2>
+            <p class="text-white text-end">${images[i].text}</p>
+        </div>
+    </div>`;
+    thumbnails.innerHTML += `
+    <div class="img-wrapper d-flex flex-row">
+        <img class="img-fluid" src="${images[i].image}" alt="${images[i].title}">
+    </div>`;
+    document.querySelector('.img-wrapper').style.width = `calc(100% / ${images.length})`;
+}
+
+let currentIndex = 0;
+
+addClass('main-img', 'active');
+addClass('img-wrapper', 'active');
+
+document.querySelector('.my-next').addEventListener('click', function() {
+    removeClass('main-img', 'active');
+    removeClass('img-wrapper', 'active');
+
+    if (currentIndex == images.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+
+    addClass('main-img', 'active');
+    addClass('img-wrapper', 'active');
+});
+
+document.querySelector('.my-previous').addEventListener('click', function() {
+    removeClass('main-img', 'active');
+    removeClass('img-wrapper', 'active');
+
+    if (currentIndex == 0) {
+        currentIndex = images.length - 1;
+    } else {
+        currentIndex--;
+    }
+
+    addClass('main-img', 'active');
+    addClass('img-wrapper', 'active');
+});
+
+function addClass(elementClassName, classToAdd) {
+    const elements = document.getElementsByClassName(elementClassName)[currentIndex];
+    elements.classList.add(classToAdd);
+}
+
+function removeClass(elementClassName, classToRemove) {
+    const elements = document.getElementsByClassName(elementClassName)[currentIndex];
+    elements.classList.add(classToRemove);
+}
