@@ -40,7 +40,12 @@ div.my-thumbnails{
 }
 
 div.my-thumbnails .img-wrapper {
-        filter: brightness(50%);
+    filter: brightness(50%);
+}
+
+div.my-thumbnails .img-wrapper.active {
+    filter: brightness(100%);
+    border: 2px solid white;
 }
 
 div.my-thumbnails .img-wrapper img {

@@ -108,5 +108,5 @@ function addClass(elementClassName, classToAdd) {
 
 function removeClass(elementClassName, classToRemove) {
     const elements = document.getElementsByClassName(elementClassName)[currentIndex];
-    elements.classList.add(classToRemove);
+    elements.classList.remove(classToRemove);
 }
