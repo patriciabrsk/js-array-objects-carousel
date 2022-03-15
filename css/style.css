@@ -11,15 +11,14 @@ main {
 }
 
 div.my-carousel-container{
-    height: 700px;
+    height: 600px;
     width: 800px;
     margin: 0 auto;
 }
 
-
 div.my-carousel-images .main-img {
-    height: 100%;
     display: none;
+    height: 400px;
 }
 
 div.main-img img {
@@ -47,6 +46,7 @@ div.my-thumbnails{
 
 div.my-thumbnails .img-wrapper {
     filter: brightness(50%);
+    width: 100%;
 }
 
 div.my-thumbnails .img-wrapper.active {

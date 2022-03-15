@@ -56,7 +56,7 @@ thumbnails.classList.add('d-flex');
 
 for (let i = 0 ; i < images.length ; i++){
     carouselImg.innerHTML += `
-    <div class="main-img position-relative rounded-3">
+    <div class="main-img position-relative">
         <img src="${images[i].image}" alt="${images[i].title}">
         <div class="text-box position-absolute">
             <h2 class="text-white text-end">${images[i].title}</h2>
@@ -64,7 +64,7 @@ for (let i = 0 ; i < images.length ; i++){
         </div>
     </div>`;
     thumbnails.innerHTML += `
-    <div class="img-wrapper d-flex flex-row">
+    <div class="img-wrapper d-flex">
         <img class="img-fluid" src="${images[i].image}" alt="${images[i].title}">
     </div>`;
     document.querySelector('.img-wrapper').style.width = `calc(100% / ${images.length})`;
@@ -75,6 +75,7 @@ let currentIndex = 0;
 addClass('main-img', 'active');
 addClass('img-wrapper', 'active');
 
+let isForward = true;
 const next = document.querySelector('.my-next');
 next.addEventListener('click', function() {
     removeClass('main-img', 'active');
@@ -88,13 +89,14 @@ next.addEventListener('click', function() {
 
     addClass('main-img', 'active');
     addClass('img-wrapper', 'active');
+
+    isForward = true;
 });
 
 const prev = document.querySelector('.my-previous');
 prev.addEventListener('click', function() {
     removeClass('main-img', 'active');
     removeClass('img-wrapper', 'active');
-    let activeElement = active
 
     if (currentIndex == 0) {
         currentIndex = images.length - 1;
@@ -104,11 +106,12 @@ prev.addEventListener('click', function() {
 
     addClass('main-img', 'active');
     addClass('img-wrapper', 'active');
+    
+    isForward = false;
 });
 
-let isNextSlide = true;
 let autoSlide = setInterval(function() {
-    if (isNextSlide) {
+    if (isForward) {
         next.click();
     } else {
         prev.click();
@@ -124,7 +127,6 @@ function removeClass(elementClassName, classToRemove) {
     const elements = document.getElementsByClassName(elementClassName)[currentIndex];
     elements.classList.remove(classToRemove);
 }
-
 
 // function autoSlide() {
 //     currentIndex += 1;
