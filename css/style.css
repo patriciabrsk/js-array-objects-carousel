@@ -11,8 +11,9 @@ main {
 }
 
 div.my-carousel-container{
-    min-height: 700px;
-    min-width:800px;
+    height: 700px;
+    width: 800px;
+    margin: 0 auto;
 }
 
 
