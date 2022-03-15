@@ -44,8 +44,6 @@ const images = [
     }
 ];
 
-// window.onload = autoSlide();
-
 document.getElementById('my-before-carousel').innerHTML = `
 <h1 class="text-uppercase text-white fw-bold">
     Image Carousel
