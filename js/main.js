@@ -127,11 +127,3 @@ function removeClass(elementClassName, classToRemove) {
     const elements = document.getElementsByClassName(elementClassName)[currentIndex];
     elements.classList.remove(classToRemove);
 }
-
-// function autoSlide() {
-//     currentIndex += 1;
-//     if (currentIndex === images.length) {
-//         currentIndex = 0;
-//     }
-
-// }
